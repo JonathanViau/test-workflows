@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+      - "test_name"
+
+jobs:
+  run-checks-tests-deploy:
+    name: Log branch name in push
+    runs-on: ubuntu-latest
+    steps:
+        - name: Log branch name
+          run: |
+            echo "Base ref: ${{ github.base_ref }} , head_ref: ${{ github.head_ref }} , ref: ${{ github.ref }} , ref_name: ${{ github.ref_name }}"

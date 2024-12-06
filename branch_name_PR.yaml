@@ -1,0 +1,16 @@
+on:
+  pull_request:
+    branches:
+      - 'refs/**'
+      - test_name
+      - '**merge**'
+      - '*'
+
+jobs:
+  log-branch-name:
+    name: Log branch name on pull request
+    runs-on: ubuntu-latest
+    steps:
+        - name: Log branch name
+          run: |
+            echo "Base ref: ${{ github.base_ref }} , head_ref: ${{ github.head_ref }} , ref: ${{ github.ref }} , ref_name: ${{ github.ref_name }}"
